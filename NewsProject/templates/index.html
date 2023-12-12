@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for n in news %}
+        <div class="col-12 d-flex bg-light my-5">
+            <div class="col-4 p-3">
+                <p>{{ n.category.name }}</p>
+                <a href="{%url 'article-detail' n.pk %}">
+                    <h3>{{ n.title }}</h3>
+                </a>
+                <p>{{ n.created_by.get_full_name }}</p>
+                <p class="text-secondary">{{ n.created_at }} date</p>
+            </div>
+            <div class="col-4 p-3">
+                <p class="text-secondary">
+                    {{ n.description }}
+                </p>
+            </div>
+            <div class="col-4 p3">
+                <img width="100%" src="{{ n.image.url }}">
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}
