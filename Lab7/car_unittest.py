@@ -8,24 +8,24 @@ class CarTest(unittest.TestCase):
         self.car2 = Car("BMW", "X6", 2021, "black", 42000, "KH4858")
         self.car3 = Car("Nissan", "Qashqai", 2018, "black", 20500, "EA6565")
 
-    def test_get_brand(self):
+    def testGetBrand(self):
         self.assertEqual(self.car1.get_brand(), "Audi")
         self.assertEqual(self.car2.get_brand(), "BMW")
 
-    def test_set_brand(self):
+    def testSetBrand(self):
         self.assertEqual(self.car1.get_brand(), "Audi")
         self.car1.set_brand("BMW")
         self.assertEqual(self.car1.get_brand(), "BMW")
 
-    def test_get_model(self):
+    def testGetModel(self):
         self.assertEqual(self.car1.get_model(), "Q7")
         self.assertEqual(self.car2.get_model(), "X6")
 
-    def test_calculate_car_age(self):
+    def testCalculateCarAge(self):
         self.assertEqual(Car.calculate_car_age(self.car1), 5)
         self.assertEqual(Car.calculate_car_age(self.car2), 2)
 
-    def test__eq__(self):
+    def testEq(self):
         self.assertTrue(self.car1.get_year() == self.car3.get_year())
 
     def tearDown(self):
